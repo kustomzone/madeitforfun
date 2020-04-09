@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Made It For Fun</title>
+  <meta property="og:title" content="Made It For Fun" />
+  <meta property="og:description" content="A stupid website for animating images on top of videos.">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://madeitfor.fun/" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/TrevorSundberg/madeitforfun/master/preview.gif" />
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      background-color: black !important;
+      top: 0px;
+      left: 0px;
+      touch-action: none;
+    }
+
+    * {
+      outline: none;
+    }
+
+    .widget {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      user-select: none;
+      color: black;
+      font: 4em Arial;
+      outline: 1px solid transparent;
+    }
+
+    #container {
+      position: absolute;
+      background-color: transparent;
+      top: 0px;
+      left: 0px;
+      transform-origin: top left;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    .fill {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    #buttons {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      /* Fix a bug in Chrome with the video drawing over sometimes */
+      transform: translateZ(0);
+      z-index: 2;
+    }
+
+    .button {
+      display: block;
+      font-size: 7vmin;
+      height: 8.8vmin;
+      color: white;
+      text-align: center;
+      text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    .button:hover {
+      color: black;
+    }
+
+    .button:active {
+      color: gray;
+    }
+  </style>
+<link rel="shortcut icon" href="/assets/favicon.ico"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="manifest" href="/assets/manifest.json"><meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#fff"><meta name="application-name" content="madeitforfun"><link rel="apple-touch-icon" sizes="57x57" href="/assets/apple-touch-icon-57x57.png"><link rel="apple-touch-icon" sizes="60x60" href="/assets/apple-touch-icon-60x60.png"><link rel="apple-touch-icon" sizes="72x72" href="/assets/apple-touch-icon-72x72.png"><link rel="apple-touch-icon" sizes="76x76" href="/assets/apple-touch-icon-76x76.png"><link rel="apple-touch-icon" sizes="114x114" href="/assets/apple-touch-icon-114x114.png"><link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon-120x120.png"><link rel="apple-touch-icon" sizes="144x144" href="/assets/apple-touch-icon-144x144.png"><link rel="apple-touch-icon" sizes="152x152" href="/assets/apple-touch-icon-152x152.png"><link rel="apple-touch-icon" sizes="167x167" href="/assets/apple-touch-icon-167x167.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-180x180.png"><link rel="apple-touch-icon" sizes="1024x1024" href="/assets/apple-touch-icon-1024x1024.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="madeitforfun"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" href="/assets/apple-touch-startup-image-320x460.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" href="/assets/apple-touch-startup-image-640x920.png"><link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="/assets/apple-touch-startup-image-640x1096.png"><link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/assets/apple-touch-startup-image-750x1294.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" href="/assets/apple-touch-startup-image-1182x2208.png"><link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" href="/assets/apple-touch-startup-image-1242x2148.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" href="/assets/apple-touch-startup-image-748x1024.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" href="/assets/apple-touch-startup-image-768x1004.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="/assets/apple-touch-startup-image-1496x2048.png"><link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="/assets/apple-touch-startup-image-1536x2008.png"><link rel="icon" type="image/png" sizes="228x228" href="/assets/coast-228x228.png"><meta name="msapplication-TileColor" content="#fff"><meta name="msapplication-TileImage" content="/assets/mstile-144x144.png"><meta name="msapplication-config" content="/assets/browserconfig.xml"><link rel="yandex-tableau-widget" href="/assets/yandex-browser-manifest.json"></head>
+
+<body>
+  <div id="container">
+    <canvas class="fill" id="canvas"></canvas>
+    <div class="fill" id="widgets" tabindex="0">
+    </div>
+  </div>
+  <div id="buttons">
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Visit GitHub" id="github"><i class="fab fa-github-alt"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Add sticker" id="sticker"><i class="fas fa-sticky-note"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Add text" id="text"><i class="fas fa-font"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Set the background video" id="video"><i class="fas fa-film"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Share your animation" id="share"><i class="fas fa-share-alt"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Render & export your animation to an mp4" id="render"><i class="fas fa-file-export"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Track motion" id="motion"><i class="fas fa-meteor"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Toggle visibility" id="visibility"><i class="fas fa-eye"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Delete selection" id="delete"><i class="fas fa-trash"></i></div>
+    <div class="button" data-toggle="tooltip" data-placement="left" title="Clear keyframes in blue selection range" id="clear"><i class="fas fa-times-circle"></i></div>
+  </div>
+<script type="text/javascript" src="main-0.js"></script></body>
+
+</html>
